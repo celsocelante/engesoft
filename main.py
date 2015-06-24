@@ -1,22 +1,34 @@
 import sys
+from revista import Revista
+from interpretador import Interpretador
 
 args = sys.argv
+
+revista = Revista("EngSoft")
+
+interpretador = Interpretador(args)
+
 entradas = []
 
-for i in range(0,5):
-	entradas.append("")
-	
-for i in range(0,len(args)):
-	if args[i] == "-e":
-		entradas[0] = args[i+1]
-	if args[i] == "-t":
-		entradas[1] = args[i+1]
-	if args[i] == "-p":
-		entradas[2] = args[i+1]
-	if args[i] == "-a":
-		entradas[3] = args[i+1]
-	if args[i] == "-r":
-		entradas[4] = args[i+1]
+entradas = interpretador.retornaEntradas()
 
-print entradas
+#Instanciando objetos que fazem a leitura
+
+pessoas = CadastroPessoas(entradas[2],revista)
+temas = CadastroTemas(entradas[1],revista)
+edicao = CadastroEdicao(entradas[0],revista)
+artigos = CadastroArtigos(entradas[3],revista)
+revisoes = CadastroRevisoes(entradas[4],revista)
+
+
+resumo = Resumo(revista)
+resumo.escreveResumo()
+
+relatRevisoes = RelatorioRevisoes(revista)
+RelatorioRevisoes.escreveRelatorio()
+
+
+relatRevisores = RelatorioRevisores(revista)
+relatRevisores.escreveRelatorio()
+
 
