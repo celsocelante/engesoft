@@ -1,6 +1,11 @@
 import sys
 from revista import Revista
 from interpretador import Interpretador
+from cadastroEdicao import CadastroEdicao
+from cadastroArtigos import CadastroArtigos
+from cadastroPessoas import CadastroPessoas
+from cadastroRevisoes import CadastroRevisoes
+from cadastroTemas import CadastroTemas 
 
 args = sys.argv
 

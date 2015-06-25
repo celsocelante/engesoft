@@ -1,7 +1,7 @@
 from colaborador import Colaborador
 
 class Revisor(Colaborador):
-    __init__(self,nome,email,endereco,senha,codigo):
+    def __init__(self,nome,email,endereco,senha,codigo):
         Colaborador.__init__(self,nome,email,endereco,senha,codigo)
         self.instituicoes = []
         self.revisoes = []

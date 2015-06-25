@@ -1,43 +1,40 @@
 from artigo import Artigo
 
 class CadastroArtigos:
-    __init__(self,entrada,revista):
+    def __init__(self,entrada,revista):
         self.entrada = entrada
         self.revista = revista
 
-    f = open(entrada,'r')
-    cabecalho = f.readline().rstrip()
-    linha = "."
+	f = open(self.entrada,'r')
+	cabecalho = f.readline().strip()	
 
-    while linha != '':
-        linha = f.readline().rstrip()
-        token = linha.split(';')
+	for linha in f:	    
+	    token = linha.strip().split(';')
+	    token.pop()
+	    codigo = int(token[0])
+	    titulo = token[1]
+	    artigo = Artigo(codigo,titulo)
 
-        codigo = int(token[0])
-        titulo = token[1]
-        artigo = Artigo(codigo,titulo)
+	    (revista.getEdicao()).submeterArtigo(artigo)
 
-        (revista.getEdicao()).submeterArtigo(artigo)
+	    autorContato = None
 
-        autorContato = None
+	    autores = token[2]
+	    token2 = autores.split(',')
 
-        autores = token[2]
-        token2 = autores.split(',')
+	    cdg = int(token2[0])
+	    c = revista.buscaColaborador(cdg)
+	    autor = c
 
-        cdg = int(token2[0])
-        c = revista.buscaColaborador(cdg)
-        autor = c
+	    autorContato = c
+	    artigo.vinculaAutor(c)
+	    artigo.setContato(autorContato)	   
+	    if len(token) > 3:
+		contato = int(token[3])
 
-        autorContato = c
-        artigo.vinculaAutor(c)
-        artigo.setContato(autorContato)
+		c = revista.buscaColaborador(contato)
 
-        if len(token) > 3:
-            contato = int(token[3])
-
-            c = revista.buscaColaborador(contato)
-
-            autor = c
-            if artigo.contemAutor(autor):
-                artigo.setContato(autor)
+		autor = c
+		if artigo.contemAutor(autor):
+		    artigo.setContato(autor)
                 

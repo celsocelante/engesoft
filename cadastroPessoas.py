@@ -2,33 +2,31 @@ from autor import Autor
 from revisor import Revisor
 
 class CadastroPessoas:
-    __init__(self,entrada,revista):
+    def __init__(self,entrada,revista):
         self.entrada = entrada
         self.revista = revista
 
-    f = open(entrada,'r')
-    cabecalho = f.readline().rstrip()
-    linha = "."
+	f = open(self.entrada,'r')
+	cabecalho = f.readline().strip()
+	
 
-    while linha != '':
-        linha = f.readline().rstrip()
-        token = linha.split(';')
+	for linha in f:	    
+	    token = linha.split(';')	 
+	    codigo = token[0]
+	    nome = token[1]
+	    email = token[2]
+	    senha = token[3]
+	    instituicao = token[4]
+	    endereco = token[5]
+	    tipo = token[6]
 
-        codigo = token[0]
-        nome = token[1]
-        email = token[2]
-        senha = token[3]
-        instituicao = token[4]
-        endereco = token[5]
-        tipo = token[6]
+	    cdg = int(codigo)
+	    if tipo == "A":
+		autor = Autor(nome,email,endereco,senha,cdg)
+		autor.vinculaInstituicao(instituicao)
+		revista.adicionaColaborador(autor)
 
-        cdg = int(codigo)
-        if tipo == "A":
-            autor = Autor(nome,email,endereco,senha,cdg)
-            autor.vinculaInstituicao(instituicao)
-            revista.adicionaColaborador(autor)
-
-        else if tipo == "R":
-                revisor = Revisor(nome,email,endereco,senha,cdg)
-                revisor.vinculaInstituicao(instituicao)
-                revista.adicionaColaborador(revisor)
+	    if tipo == "R":
+		revisor = Revisor(nome,email,endereco,senha,cdg)
+		revisor.vinculaInstituicao(instituicao)
+		revista.adicionaColaborador(revisor)

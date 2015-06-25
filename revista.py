@@ -1,5 +1,5 @@
 class Revista:
-    __init__(self,nome):
+    def __init__(self,nome):
         self.nome = nome
         self.temas = []
         self.colaboradores = []
@@ -12,19 +12,19 @@ class Revista:
         self.colaboradores.append(colaborador)
 
     def buscaColabordor(self,codigo):
-        for c in colaboradores:
+        for c in self.colaboradores:
             if c.getCodigo() == codigo:
                 return c
         return None
 
     def buscaColaborador(self,nome):
-        for c in colaboradores:
+        for c in self.colaboradores:
             if nome == c.getNome():
                 return c
         return None
 
     def buscaTema(self,titulo):
-        for t in temas:
+        for t in self.temas:
             if titulo == t.getTitulo():
                 return t
         return None
@@ -40,7 +40,7 @@ class Revista:
 
     def getRevisoresEnvolvidos(self):
         qnt=0
-        for c in colaboradores:
+        for c in self.colaboradores:
             if isinstance(c,Revisor):
                 if len(c.getRevisoes()) != 0:
                     qnt+=1
@@ -48,7 +48,7 @@ class Revista:
 
     def getArtigosRevisados(self):
         totalArtigosRevisados=0
-        for c in colaboradores:
+        for c in self.colaboradores:
             if isinstance(c,Revisor):
                 if len(c.getRevisoes()) != 0:
                     totalArtigosRevisados+=c.getQuantidadeArtigos()

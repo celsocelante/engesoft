@@ -1,41 +1,42 @@
 class Artigo:
 
-    __init__(self,codigo,titulo):
+    def __init__(self,codigo,titulo):
         self.codigo = codigo
         self.titulo = titulo
         self.autores = []
         self.revisoes = []
-
+	self.contato = None 
+	
     def vinculaAutor(self,autor):
         self.autores.append(autor)
 
     def adicionaAvaliacao(self,avaliacao):
-        revisoes.append(avalicao)
+        self.revisoes.append(avaliacao)
 
     def contemAutor(self,autor):
-        return autor in autores
+        return autor in self.autores
 
     def quantidadeRevisoes(self):
-        return len(revisoes) == 3
+        return len(self.revisoes) == 3
 
     def getCodigo(self):
         return self.codigo
 
     def getTitulo(self):
-        return titulo
+        return self.titulo
 
     def getContato(self):
-        if(contato is None):
+        if self.contato is None:
             return ""
         else:
-            return contato.getNome()
+            return self.contato.getNome()
 
     def getRevisao(self):
         return revisoes
 
     def getMedia(self):
         media = 0
-        for(a in revisoes):
+        for a in revisoes:
             media += a.getSomaNotas()
         return media/3
 
@@ -43,6 +44,6 @@ class Artigo:
         return len(revisoes)
 
     def setContato(self,autor):
-        contato = autor
+        self.contato = autor
 
     #Metodo para ordenacao aqui

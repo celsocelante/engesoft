@@ -1,5 +1,5 @@
 class Colaborador:
-    __init__(self,nome,email,endereco,senha,codigo):
+    def __init__(self,nome,email,endereco,senha,codigo):
         self.nome = nome
         self.email = email
         self.edereco = endereco

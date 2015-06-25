@@ -1,5 +1,5 @@
 class Tema:
-  __init__(self,titulo,codigo):
+  def __init__(self,titulo,codigo):
     self.titulo = titulo
     self.codigo = codigo
     self.revisores = []

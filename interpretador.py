@@ -1,22 +1,22 @@
-class interpretador:
-	__init__(self, args):
+class Interpretador:
+	def __init__(self, args):
 	      self.args = args
-	      entradas = []
+	      self.entradas = []
 
-					  
-	for i in range(0,5):
-		entradas.append("")
-		
-	for i in range(0,len(args)):
-		if args[i] == "-e":
-			entradas[0] = args[i+1]
-		if args[i] == "-t":
-			entradas[1] = args[i+1]
-		if args[i] == "-p":
-			entradas[2] = args[i+1]
-		if args[i] == "-a":
-			entradas[3] = args[i+1]
-		if args[i] == "-r":
-			entradas[4] = args[i+1]
+	def retornaEntradas(self):	      
+	      for i in range(0,5):
+		      self.entradas.append("")
+		      
+	      for i in range(0,len(self.args)):
+		      if self.args[i] == "-e":
+			      self.entradas[0] = self.args[i+1]
+		      if self.args[i] == "-t":
+			     self. entradas[1] = self.args[i+1]
+		      if self.args[i] == "-p":
+			      self.entradas[2] = self.args[i+1]
+		      if self.args[i] == "-a":
+			      self.entradas[3] = self.args[i+1]
+		      if self.args[i] == "-r":
+			      self.entradas[4] = self.args[i+1]
 
-	print entradas
+	      return self.entradas

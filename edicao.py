@@ -1,5 +1,5 @@
 class Edicao:
-  __init__(self,volume,numero,data,tema,editorChefe):
+  def __init__(self,volume,numero,data,tema,editorChefe):
     self.volume = volume
     self.numero = numero
     #Tratar formato da data
@@ -12,8 +12,8 @@ class Edicao:
     self.submetidos.append(artigo)
 
   def buscaArtigo(self,codigo):
-    for a in submetidos:
-      if(a.getCodigo() == codigo)
+    for a in self.submetidos:
+      if a.getCodigo() == codigo:
         return a
     return None
 
@@ -28,7 +28,8 @@ class Edicao:
 
   def getData(self):
     #retornar data formatada
-
+    return None
+  
   def getEditorChefe(self):
     return self.editorChefe
 

@@ -1,5 +1,5 @@
 class Resumo:
-    __init__(self,revista):
+    def __init__(self,revista):
         self.revista = revista
 
     def escreveResumo(self):

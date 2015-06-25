@@ -1,5 +1,5 @@
 class RelatorioRevisoes:
-    __init__(self,revista):
+    def __init__(self,revista):
         self.revista = revista
 
     #Metodo pra ordenação de conjunto de artigos?

@@ -1,32 +1,33 @@
+from avaliacao import Avaliacao
 class CadastroRevisoes:
 
-    _init__(self,entrada,revista):
+    def __init__(self,entrada,revista):
         self.entrada = entrada
         self.revista = revista
 
-    f = open(entrada,'r')
-    cabecalho = f.readline().rstrip()
-    linha = "."
+	f = open(self.entrada,'r')
+	cabecalho = f.readline().strip()
+	
 
-    while linha != '':
-        linha = f.readline().rstrip()
-        token = linha.split(';')
-        
-        codigo = int(token[0])
-        revisor = int(token[1])
+	for linha in f:
+	    token = linha.strip().split(';')
 
-        originalidade = float(token[2].replace(',','.')
-        conteudo = float(token[3].replace(',','.')
-        apresentacao = float(token[4].replace(',','.')
+	    codigo = int(token[0])
+	    revisor = int(token[1])
 
-        c = revista.buscaColaborador(revisor)
-        r = c
+	    originalidade = float(token[2].replace(',','.'))
+	    conteudo = float(token[3].replace(',','.'))
+	    apresentacao = float(token[4].replace(',','.'))
 
-        avaliacao = Avaliacao(r)
-        avaliacao.atribuirNota(originalidade,conteudo,apresentacao)
+	    c = revista.buscaColaborador(revisor)
+	    r = c
+	    print r
 
-        artigo = (revista.getEdicao()).buscaArtigo(codigo)
+	    avaliacao = Avaliacao(r)
+	    avaliacao.atribuirNota(originalidade,conteudo,apresentacao)
 
-        if artigo != None:
-            artigo.adicionaAvaliacao(avaliacao)
-            r.vinculaRevisao(artigo)
+	    artigo = (revista.getEdicao()).buscaArtigo(codigo)
+
+	    if artigo != None:
+		artigo.adicionaAvaliacao(avaliacao)
+		r.vinculaRevisao(artigo)

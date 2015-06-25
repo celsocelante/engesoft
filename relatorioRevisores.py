@@ -1,7 +1,7 @@
 from revisor import Revisor
 
 class RelatorioRevisores:
-    __init__(self,revista):
+    def __init__(self,revista):
         self.revista = revista
 
     def getMediaNotasAtribuidas(self,revisor):
