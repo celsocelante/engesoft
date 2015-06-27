@@ -5,7 +5,10 @@ from cadastroEdicao import CadastroEdicao
 from cadastroArtigos import CadastroArtigos
 from cadastroPessoas import CadastroPessoas
 from cadastroRevisoes import CadastroRevisoes
-from cadastroTemas import CadastroTemas 
+from cadastroTemas import CadastroTemas
+from resumo import Resumo
+from relatorioRevisoes import RelatorioRevisoes
+from relatorioRevisores import RelatorioRevisores
 
 args = sys.argv
 
@@ -35,5 +38,3 @@ RelatorioRevisoes.escreveRelatorio()
 
 relatRevisores = RelatorioRevisores(revista)
 relatRevisores.escreveRelatorio()
-
-

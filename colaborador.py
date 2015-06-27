@@ -4,7 +4,7 @@ class Colaborador:
         self.email = email
         self.edereco = endereco
         self.senha = senha
-        self.codigo = codigo
+        self.codigo = int(codigo)
 
     def getCodigo(self):
         return self.codigo

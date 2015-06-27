@@ -21,5 +21,5 @@ class CadastroTemas:
 
             for r in revisor:
                 cdg = int(r)
-                c = revista.buscaColaborador(cdg)
+                c = revista.buscaColaboradorCodigo(cdg)
                 self.tema.vinculaRevisor(r)

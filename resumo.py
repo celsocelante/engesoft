@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 class Resumo:
     def __init__(self,revista):
         self.revista = revista
@@ -5,26 +6,26 @@ class Resumo:
     def escreveResumo(self):
         edicao = self.revista.getEdicao()
 
-        file = open("relat-resumo.txt",'w')
+        arq = open("relat-resumo.txt",'w')
 
-        file.write("EngeSoft, num. " + str(edicao.getNumero()) + str(edicao.getVolume()) + " - " + edicao.getData() + "\n")
+        #arq.write("EngeSoft, num. " + str(edicao.getNumero()) + str(edicao.getVolume()) + " - " + edicao.getData() + "\n")
 
-        if edicao.getTema() != None:
-            file.write("Tema " + edicao.getTema().getTitulo() + "\n")
+        if edicao.getTema() is not None:
+            arq.write("Tema " + edicao.getTema().getTitulo() + "\n")
 
-        file.write("Editor-chefe: ")
-        if edicao.getEditorChefe() != None:
+        arq.write("Editor-chefe: ")
+        if edicao.getEditorChefe() is not None:
             file.write(edicao.getEditorChefe().getNome() + "\n\n")
 
-        file.write("Consistência dos dados:")
+        arq.write("Consistência dos dados:")
         file.write("- Nenhum problema encontrado.\n\n")
 
-        file.write("Artigos submetidos: " + str(len(revista.getEdicao().getArtigos())))
-        file.write("Revisores capacitados: " + str(revista.getEdicao().getTema().getQuantidadeRevisores()))
-        file.write("Revisores envolvidos: " + str(revista.getRevisoresEnvolvidos()))
+        #arq.write("Artigos submetidos: " + str(len(self.revista.getEdicao().getArtigos())))
+        #arq.write("Revisores capacitados: " + str(self.revista.getEdicao().getTema().getQuantidadeRevisores()))
+        arq.write("Revisores envolvidos: " + str(self.revista.getRevisoresEnvolvidos()))
 
         #Ver como converter para padrão brasileiro
-        media = revista.getArtigosRevisados()/revista.getRevisoresEnvolvidos()
+        media = self.revista.getArtigosRevisados()/self.revista.getRevisoresEnvolvidos()
 
-        file.write("Média artigos/revisor: " + str(media).)
-        file.close()
+        arq.write("Média artigos/revisor: " + str(media) + ".")
+        arq.close()

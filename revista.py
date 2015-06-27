@@ -1,3 +1,4 @@
+from revisor import Revisor
 class Revista:
     def __init__(self,nome):
         self.nome = nome
@@ -11,15 +12,15 @@ class Revista:
     def adicionaColaborador(self,colaborador):
         self.colaboradores.append(colaborador)
 
-    def buscaColabordor(self,codigo):
+    def buscaColaboradorCodigo(self,codigo):
         for c in self.colaboradores:
-            if c.getCodigo() == codigo:
+            if c.getCodigo() == int(codigo):
                 return c
         return None
 
-    def buscaColaborador(self,nome):
+    def buscaColaboradorNome(self,nome):
         for c in self.colaboradores:
-            if nome == c.getNome():
+            if c.getNome() == nome:
                 return c
         return None
 
@@ -39,7 +40,7 @@ class Revista:
         return self.colaboradores
 
     def getRevisoresEnvolvidos(self):
-        qnt=0
+        qnt = 0
         for c in self.colaboradores:
             if isinstance(c,Revisor):
                 if len(c.getRevisoes()) != 0:

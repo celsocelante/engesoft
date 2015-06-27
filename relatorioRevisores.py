@@ -1,3 +1,4 @@
+# -*- coding: utf-8 -*-
 from revisor import Revisor
 
 class RelatorioRevisores:
@@ -14,16 +15,15 @@ class RelatorioRevisores:
         return media/revisor.getQuantidadeArtigos()
 
     def escreveRelatorio(self):
+        arq = open("relat-revisores.csv",'w')
 
-        file = open("relat-revisores.csv",'w')
-
-        file.write("Revisor;Qtd. artigos revisados;Média das notas atribuídas")
+        arq.write("Revisor;Qtd. artigos revisados;Média das notas atribuídas")
 
         for colaborador in revista.getColaboradores():
             if isinstance(colaborador,Revisor):
                 r = Revisor(colaborador)
                 if r.participoudaEdicao():
-                    file.write("\n")
-                    file.write(r.getNome() + ";" + str(r.getQuantidadeArtigos()) + ";" + str(self.getMediaNotasAtribuidas(r))
+                    arq.write("\n")
+                    arq.write(r.getNome() + ";" + str(r.getQuantidadeArtigos()) + ";" + str(self.getMediaNotasAtribuidas(r))
 
-        file.close()
+        arq.close()
