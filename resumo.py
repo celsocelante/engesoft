@@ -15,14 +15,14 @@ class Resumo:
 
         arq.write("Editor-chefe: ")
         if edicao.getEditorChefe() is not None:
-            file.write(edicao.getEditorChefe().getNome() + "\n\n")
+            arq.write(edicao.getEditorChefe().getNome() + "\n\n")
 
-        arq.write("Consistência dos dados:")
-        file.write("- Nenhum problema encontrado.\n\n")
+        arq.write("Consistência dos dados:\n")
+        arq.write("- Nenhum problema encontrado.\n\n")
 
         #arq.write("Artigos submetidos: " + str(len(self.revista.getEdicao().getArtigos())))
         #arq.write("Revisores capacitados: " + str(self.revista.getEdicao().getTema().getQuantidadeRevisores()))
-        arq.write("Revisores envolvidos: " + str(self.revista.getRevisoresEnvolvidos()))
+        arq.write("Revisores envolvidos: " + str(self.revista.getRevisoresEnvolvidos()) + "\n")
 
         #Ver como converter para padrão brasileiro
         media = self.revista.getArtigosRevisados()/self.revista.getRevisoresEnvolvidos()

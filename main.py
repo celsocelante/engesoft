@@ -33,7 +33,7 @@ resumo = Resumo(revista)
 resumo.escreveResumo()
 
 relatRevisoes = RelatorioRevisoes(revista)
-RelatorioRevisoes.escreveRelatorio()
+relatRevisoes.escreveRelatorio()
 
 
 relatRevisores = RelatorioRevisores(revista)

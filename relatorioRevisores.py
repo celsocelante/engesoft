@@ -6,9 +6,9 @@ class RelatorioRevisores:
         self.revista = revista
 
     def getMediaNotasAtribuidas(self,revisor):
-        media = double(0)
+        media = 0.0
 
-        for artigo in revisro.getRevisoes():
+        for artigo in revisor.getRevisoes():
             for avaliacao in artigo.getRevisao():
                 if revisor.getNome() == avaliacao.getRevisor().getNome():
                     media += avaliacao.getSomaNotas()
@@ -19,11 +19,11 @@ class RelatorioRevisores:
 
         arq.write("Revisor;Qtd. artigos revisados;Média das notas atribuídas")
 
-        for colaborador in revista.getColaboradores():
+        for colaborador in self.revista.getColaboradores():
             if isinstance(colaborador,Revisor):
-                r = Revisor(colaborador)
-                if r.participoudaEdicao():
+                r = colaborador
+                if r.participouDaEdicao():
                     arq.write("\n")
-                    arq.write(r.getNome() + ";" + str(r.getQuantidadeArtigos()) + ";" + str(self.getMediaNotasAtribuidas(r))
+                    arq.write(r.getNome() + ";" + str(r.getQuantidadeArtigos()) + ";" + str(self.getMediaNotasAtribuidas(r)))
 
         arq.close()

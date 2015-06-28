@@ -13,12 +13,10 @@ class Revisor(Colaborador):
         self.revisoes.append(artigo)
 
     def participouDaEdicao(self):
-        return len(revisoes) != 0
+        return len(self.revisoes) != 0
 
     def getRevisoes(self):
         return self.revisoes
 
     def getQuantidadeArtigos(self):
         return len(self.revisoes)
-
-    

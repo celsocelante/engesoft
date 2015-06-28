@@ -10,7 +10,7 @@ class RelatorioRevisoes:
 
         arq.write("Artigo;Autor de contato;Média das avaliacões;Revisor 1; Revisor2; Revisor 3")
 
-        for artigo in revista.getEdicao().getArtigos():
+        for artigo in self.revista.getEdicao().getArtigos():
             arq.write("\n")
             arq.write(artigo.getTitulo() + ";" + artigo.getContato() + ";" + str(artigo.getMedia()) + ";")
             for avaliacao in artigo.getRevisao():

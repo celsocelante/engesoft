@@ -5,8 +5,8 @@ class Artigo:
         self.titulo = titulo
         self.autores = []
         self.revisoes = []
-	self.contato = None 
-	
+	self.contato = None
+
     def vinculaAutor(self,autor):
         self.autores.append(autor)
 
@@ -32,16 +32,16 @@ class Artigo:
             return self.contato.getNome()
 
     def getRevisao(self):
-        return revisoes
+        return self.revisoes
 
     def getMedia(self):
         media = 0
-        for a in revisoes:
+        for a in self.revisoes:
             media += a.getSomaNotas()
         return media/3
 
     def getQuantidadeRevisoes(self):
-        return len(revisoes)
+        return len(self.revisoes)
 
     def setContato(self,autor):
         self.contato = autor
