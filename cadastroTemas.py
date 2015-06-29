@@ -17,9 +17,13 @@ class CadastroTemas:
             self.revisores = token[2]
 
             self.tema = Tema(self.nome,self.codigo)
+	    self.revista.adicionaTema(self.tema)
+
+
+
             revisor = self.revisores.split(',')
 
             for r in revisor:
                 cdg = int(r)
-                c = revista.buscaColaboradorCodigo(cdg)
+                c = self.revista.buscaColaboradorCodigo(cdg)
                 self.tema.vinculaRevisor(r)

@@ -12,8 +12,8 @@ class CadastroEdicao:
 		numero = int(f.readline().strip())
 
 		data = f.readline().rstrip()
+		t = self.revista.buscaTema(tema)
+		
+		c = self.revista.buscaColaboradorNome(editor)
 
-		t = revista.buscaTema(tema)
-		c = revista.buscaColaboradorNome(editor)
-
-		revista.setEdicao(Edicao(volume,numero,data,t,c))
+		self.revista.setEdicao(Edicao(volume,numero,data,t,c))

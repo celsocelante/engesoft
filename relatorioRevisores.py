@@ -24,6 +24,6 @@ class RelatorioRevisores:
                 r = colaborador
                 if r.participouDaEdicao():
                     arq.write("\n")
-                    arq.write(r.getNome() + ";" + str(r.getQuantidadeArtigos()) + ";" + str(self.getMediaNotasAtribuidas(r)))
+                    arq.write(r.getNome() + ";" + str(r.getQuantidadeArtigos()) + ";" + format(self.getMediaNotasAtribuidas(r),'.2f'))
 
         arq.close()

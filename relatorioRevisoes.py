@@ -12,7 +12,7 @@ class RelatorioRevisoes:
 
         for artigo in self.revista.getEdicao().getArtigos():
             arq.write("\n")
-            arq.write(artigo.getTitulo() + ";" + artigo.getContato() + ";" + str(artigo.getMedia()) + ";")
+            arq.write(artigo.getTitulo() + ";" + artigo.getContato() + ";" + format(artigo.getMedia(),'.2f') + ";")
             for avaliacao in artigo.getRevisao():
                 arq.write(avaliacao.getRevisor().getNome() + ";")
 

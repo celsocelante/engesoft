@@ -28,7 +28,6 @@ edicao = CadastroEdicao(entradas[0],revista)
 artigos = CadastroArtigos(entradas[3],revista)
 revisoes = CadastroRevisoes(entradas[4],revista)
 
-
 resumo = Resumo(revista)
 resumo.escreveResumo()
 

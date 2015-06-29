@@ -28,7 +28,7 @@ class Edicao:
 
   def getData(self):
     #retornar data formatada
-    return None
+    return ""
   
   def getEditorChefe(self):
     return self.editorChefe
