@@ -1,8 +1,8 @@
+# -*- coding: utf-8 -*-
 class Edicao:
   def __init__(self,volume,numero,data,tema,editorChefe):
     self.volume = volume
     self.numero = numero
-    #Tratar formato da data
     self.data = data
     self.tema = tema
     self.editorChefe = editorChefe
@@ -27,8 +27,12 @@ class Edicao:
     return self.volume
 
   def getData(self):
-    #retornar data formatada
-    return ""
+    meses = ["Janeiro","Fevereiro",u"Março","Abril","Maio","Junho","Julho","Agosto","Setembro","Outubro","Novembro","Dezembro"]
+    v = self.data.split("/")
+    mes = meses[int(v[1]) - 1]
+    ano = v[2]
+
+    return mes + " de " + ano
   
   def getEditorChefe(self):
     return self.editorChefe
